@@ -13,7 +13,7 @@ object Application extends Controller {
     Ok(views.html.index())
   }
 
-  val personForm: Form[Person] = Form {
+   val personForm: Form[Person] = Form {
   	mapping(
       "name" -> text
   	)(Person.apply)(Person.unapply)
