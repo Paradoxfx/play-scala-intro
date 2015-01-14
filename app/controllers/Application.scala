@@ -13,16 +13,16 @@ object Application extends Controller {
     Ok(views.html.index())
   }
 
-   val personForm: Form[Person] = Form {
-  	mapping(
-      "name" -> text,
-      "access" -> text
-  	)(Person.apply)(Person.unapply)
+  val personForm: Form[Person] = Form {
+    mapping(
+    "name" -> text,
+    "access" -> text
+    )(Person.apply)(Person.unapply)
   }
 
   def addPerson = Action { implicit request =>
   	val person = personForm.bindFromRequest.get
-  	DB.save(person)  	
+  	DB.save(person)
   	Redirect(routes.Application.index)
   }
 
