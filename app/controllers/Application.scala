@@ -20,7 +20,7 @@ object Application extends Controller {
     )(Person.apply)(Person.unapply)
   }
 
-  def addPerson = Action { implicit request =>
+  def addPerson = Action  { implicit request =>
   	val person = personForm.bindFromRequest.get
   	DB.save(person)
   	Redirect(routes.Application.index)
